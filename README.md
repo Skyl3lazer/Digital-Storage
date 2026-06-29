@@ -6,10 +6,10 @@ If the buildings lose power, colonists can no longer add or remove items, and th
 
 ## Research
 
-| Project | Cost | Prerequisites |
-|---|---|---|
-| **Digital Storage** | 700 | Electricity (also requires *Personal Computer* if [Generally More Research](https://steamcommunity.com/sharedfiles/filedetails/?id=3613068789) is installed) |
-| **Databases** | 1200 | Digital Storage |
+| Project | Cost | Prerequisites | Enables |
+|---|---|---|---|
+| **Digital Storage** | 700 | Electricity (also requires *Personal Computer* if [Generally More Research](https://steamcommunity.com/sharedfiles/filedetails/?id=3613068789) is installed) | Microfilm Reader, Digitized Index |
+| **Databases** | 1200 | Digital Storage | PawnPedia Terminal, Digital Ocean |
 
 ## Buildings
 
