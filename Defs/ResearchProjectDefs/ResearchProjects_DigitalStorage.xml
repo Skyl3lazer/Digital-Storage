@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>DigitalStorage</defName>
+    <label>digital storage</label>
+    <description>Encode physical records into compact digital form, storing larger quantities of information than a bookshelf ever could.</description>
+    <baseCost>700</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Electricity</li>
+      <li MayRequire="ferny.generallymoreresearch">Ferny_PersonalComputer</li>
+    </prerequisites>
+    <researchViewX>9.00</researchViewX>
+    <researchViewY>3.00</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Databases</defName>
+    <label>databases</label>
+    <description>Organize stored information into structured databases, dramatically increasing the capacity and retrieval speed of digital storage.</description>
+    <baseCost>1200</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>DigitalStorage</li>
+    </prerequisites>
+    <researchViewX>11.00</researchViewX>
+    <researchViewY>3.00</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

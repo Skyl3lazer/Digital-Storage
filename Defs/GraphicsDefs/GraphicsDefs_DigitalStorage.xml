@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AdaptiveStorage.GraphicsDef Name="DS_ShelfGraphicsBase" Abstract="True">
+    <showContainedItems>false</showContainedItems>
+  </AdaptiveStorage.GraphicsDef>
+
+  <AdaptiveStorage.GraphicsDef ParentName="DS_ShelfGraphicsBase">
+    <defName>DS_MicrofilmReaderGraphics</defName>
+    <targetDef>DS_MicrofilmReader</targetDef>
+  </AdaptiveStorage.GraphicsDef>
+
+  <AdaptiveStorage.GraphicsDef ParentName="DS_ShelfGraphicsBase">
+    <defName>DS_DigitizedIndexGraphics</defName>
+    <targetDef>DS_DigitizedIndex</targetDef>
+  </AdaptiveStorage.GraphicsDef>
+
+  <AdaptiveStorage.GraphicsDef ParentName="DS_ShelfGraphicsBase">
+    <defName>DS_PawnPediaTerminalGraphics</defName>
+    <targetDef>DS_PawnPediaTerminal</targetDef>
+  </AdaptiveStorage.GraphicsDef>
+
+  <AdaptiveStorage.GraphicsDef ParentName="DS_ShelfGraphicsBase">
+    <defName>DS_DigitalOceanGraphics</defName>
+    <targetDef>DS_DigitalOcean</targetDef>
+  </AdaptiveStorage.GraphicsDef>
+
+</Defs>
