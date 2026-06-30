@@ -1,19 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-  <!-- If Research Papers is installed, make its ResearchServer grant a per-book reading
-       bonus like the digital shelves. The server keeps all of its own properties; it
-       only gains the DigitalShelfExtension so the reading-bonus patch counts it. -->
+  <!-- Re-parent ResearchServer onto the digital
+       shelf base so it becomes an Adaptive Storage building and gains the per-book
+       reading bonus and power features.
+       All of the server's own properties are duplicated here; only its
+       parent (was BookcaseBase) and the added DigitalShelfExtension change. -->
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Research Papers</li>
     </mods>
-    <match Class="PatchOperationAddModExtension">
+    <match Class="PatchOperationReplace">
       <xpath>Defs/ThingDef[defName="ResearchServer"]</xpath>
       <value>
-        <li Class="DigitalStorage.DigitalShelfExtension">
-          <readingBonusPerBook>0.2</readingBonusPerBook>
-        </li>
+        <ThingDef ParentName="DigitalStorageShelfBase">
+          <defName>ResearchServer</defName>
+          <label>research server</label>
+          <description>An advanced, high-density digital storage server designed to archive research findings. Instead of taking up entire rooms with dusty paper, a single datacore can hold thousands of research papers, preserving knowledge efficiently. Built tough, it can withstand multiple explosions and is entirely fireproof.</description>
+          <graphicData>
+            <texPath>Things/Building/ResearchServer/ResearchServer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3.6,3.6)</drawSize>
+          </graphicData>
+          <size>(1,1)</size>
+          <uiIconScale>0.6</uiIconScale>
+          <altitudeLayer>MoteOverhead</altitudeLayer>
+          <designationCategory>Misc</designationCategory>
+          <passability>PassThroughOnly</passability>
+          <stuffCategories Inherit="False" />
+          <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <WorkToBuild>4500</WorkToBuild>
+            <Mass>70</Mass>
+            <Flammability>0</Flammability>
+          </statBases>
+          <costList>
+            <Steel>200</Steel>
+            <Plasteel>50</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+          </costList>
+          <building Inherit="False">
+            <maxItemsInCell>10000</maxItemsInCell>
+            <fixedStorageSettings Inherit="False">
+              <priority>Critical</priority>
+              <filter>
+                <disallowNotEverStorable>true</disallowNotEverStorable>
+                <thingDefs>
+                  <li>ResearchPaper</li>
+                </thingDefs>
+              </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings Inherit="False">
+              <priority>Critical</priority>
+              <filter>
+                <disallowNotEverStorable>true</disallowNotEverStorable>
+                <thingDefs>
+                  <li>ResearchPaper</li>
+                </thingDefs>
+              </filter>
+            </defaultStorageSettings>
+          </building>
+          <staticSunShadowHeight>0.5</staticSunShadowHeight>
+          <surfaceType>Item</surfaceType>
+          <researchPrerequisites Inherit="False">
+            <li>ResearchServerProject</li>
+          </researchPrerequisites>
+          <comps>
+            <li Class="CompProperties_Power">
+              <compClass>CompPowerTrader</compClass>
+              <basePowerConsumption>250</basePowerConsumption>
+            </li>
+          </comps>
+          <modExtensions>
+            <li Class="DigitalStorage.DigitalShelfExtension">
+              <readingBonusPerBook>0.2</readingBonusPerBook>
+            </li>
+          </modExtensions>
+        </ThingDef>
       </value>
     </match>
   </Operation>
