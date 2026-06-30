@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -14,7 +16,6 @@ namespace DigitalStorage
         }
     }
 
-    // Returns true when a digital shelf has no power comp, or its power comp is on.
     internal static class PowerCheck
     {
         public static bool Powered(Thing thing)
@@ -61,13 +62,25 @@ namespace DigitalStorage
     }
 
     // Recomputes the room reading bonus, folding powered digital shelves into the same
-    // diminishing-returns curve vanilla uses for bookcases so each stored book grants
-    // the configured magnitude (0.2 = one bookcase cell slot).
+    // diminishing-returns curve vanilla uses for bookcases
     [HarmonyPatch(typeof(RoomStatWorker_ReadingBonus), nameof(RoomStatWorker_ReadingBonus.GetScore))]
     internal static class RoomStatWorker_ReadingBonus_Patch
     {
-        private const float MaxEnhancement = 0.2f;
-        private static readonly float[] CellFilledFactor = { 0.04f, 0.02f, 0.01f, 0.005f };
+        // Read from vanilla values at startup
+        private static readonly float MaxEnhancement;
+        private static readonly List<float> CellFilledFactor;
+
+        static RoomStatWorker_ReadingBonus_Patch()
+        {
+            FieldInfo maxField = AccessTools.Field(typeof(RoomStatWorker_ReadingBonus), "MaxEnhancement");
+            FieldInfo factorField = AccessTools.Field(typeof(RoomStatWorker_ReadingBonus), "CellFilledFactor");
+            MaxEnhancement = maxField != null ? (float)maxField.GetValue(null) : 0.2f;
+            CellFilledFactor = factorField?.GetValue(null) as List<float> ?? new List<float> { 0.04f, 0.02f, 0.01f, 0.005f };
+            if (maxField == null || factorField == null)
+            {
+                Log.Warning("[Digital Storage] Could not read vanilla ReadingBonus constants via reflection; using last-known defaults. Reading bonus may be inaccurate for this game version.");
+            }
+        }
 
         static bool Prefix(Room room, ref float __result)
         {
@@ -105,7 +118,7 @@ namespace DigitalStorage
             {
                 float chunk = (filledCells >= 1f) ? 1f : filledCells;
                 filledCells -= chunk;
-                score += chunk * CellFilledFactor[Mathf.Min(step++, CellFilledFactor.Length - 1)];
+                score += chunk * CellFilledFactor[Mathf.Min(step++, CellFilledFactor.Count - 1)];
             }
 
             __result = 1f + Mathf.Min(score, MaxEnhancement);

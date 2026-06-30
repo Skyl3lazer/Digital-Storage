@@ -28,6 +28,10 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 - [Adaptive Storage Framework](https://steamcommunity.com/sharedfiles/filedetails/?id=3033901359)
 - (Optional) [Generally More Research](https://steamcommunity.com/sharedfiles/filedetails/?id=3613068789) gates the research behind *Personal Computer*.
 
+## Incompatibilities
+
+Any mods that modify the reading bonus calculations of a room would clash with this mod, as I reimplement the reading bonus calculation to allow the shelves to still give normal per-book (or enhanced per-book) bonuses. Without this patch then each book would be worth signifigantly less reading bonus while in the modded shelves.
+
 ## Supported versions
 
 - RimWorld 1.6

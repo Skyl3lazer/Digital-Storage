@@ -82,6 +82,11 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 [*](Optional) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3613068789]Generally More Research[/url] gates the research behind [i]Personal Computer[/i].
 [/list]
 
+
+[h2]Incompatibilities[/h2]
+
+Any mods that modify the reading bonus calculations of a room would clash with this mod, as I reimplement the reading bonus calculation to allow the shelves to still give normal per-book (or enhanced per-book) bonuses. Without this patch then each book would be worth signifigantly less reading bonus while in the modded shelves.
+
 [h2]Supported versions[/h2]
 
 [list]

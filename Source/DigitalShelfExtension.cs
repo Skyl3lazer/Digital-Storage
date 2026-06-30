@@ -6,6 +6,6 @@ namespace DigitalStorage
     // bonus each stored book contributes (0.2 matches a vanilla bookcase shelf cell).
     public class DigitalShelfExtension : DefModExtension
     {
-        public float readingBonusPerBook = 0.2f;
+        public float readingBonusPerBook;
     }
 }
