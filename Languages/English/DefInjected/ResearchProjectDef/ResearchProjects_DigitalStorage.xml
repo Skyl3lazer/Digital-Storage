@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <DigitalStorage.label>digital storage</DigitalStorage.label>
+  <DigitalStorage.description>Encode physical records into compact digital form, storing larger quantities of information than a bookshelf ever could.</DigitalStorage.description>
+
+  <Databases.label>databases</Databases.label>
+  <Databases.description>Organize stored information into structured databases, dramatically increasing the capacity and retrieval speed of digital storage.</Databases.description>
+
+</LanguageData>

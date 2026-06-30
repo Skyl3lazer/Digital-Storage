@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <DS_MicrofilmReader.label>microfilm reader</DS_MicrofilmReader.label>
+  <DS_MicrofilmReader.description>An industrial reader that compresses written works onto strips of microfilm. Holds far more than a bookcase and still lets colonists study nearby, but only while powered.</DS_MicrofilmReader.description>
+
+  <DS_DigitizedIndex.label>digitized index</DS_DigitizedIndex.label>
+  <DS_DigitizedIndex.description>A double-width cabinet of indexed microfilm reels. Stores a large reference library in a compact footprint and supports nearby study, as long as it has power.</DS_DigitizedIndex.description>
+
+  <DS_PawnPediaTerminal.label>PawnPedia terminal</DS_PawnPediaTerminal.label>
+  <DS_PawnPediaTerminal.description>A searchable database terminal that surfaces exactly the right passage on demand. Its curated cross-referencing makes study noticeably more effective than browsing shelves, while powered.</DS_PawnPediaTerminal.description>
+
+  <DS_DigitalOcean.label>digital ocean</DS_DigitalOcean.label>
+  <DS_DigitalOcean.description>A bank of high-density storage arrays holding an immense sea of digitized works. Includes a primitive assistant AI to find exactly the book you want, when you want it.</DS_DigitalOcean.description>
+
+</LanguageData>
