@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
   <!-- Re-parent ResearchServer onto the digital
        shelf base so it becomes an Adaptive Storage building and gains the per-book
        reading bonus and power features.
-       All of the server's own properties are duplicated here; only its
-       parent (was BookcaseBase) and the added DigitalShelfExtension change. -->
+       All of the server's own properties are duplicated here -->
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Research Papers</li>
@@ -16,7 +15,12 @@
         <ThingDef ParentName="DigitalStorageShelfBase">
           <defName>ResearchServer</defName>
           <label>research server</label>
-          <description>An advanced, high-density digital storage server designed to archive research findings. Instead of taking up entire rooms with dusty paper, a single datacore can hold thousands of research papers, preserving knowledge efficiently. Built tough, it can withstand multiple explosions and is entirely fireproof.</description>
+          <description>An advanced, high-density digital storage server designed to archive research
+            findings. Instead of taking up entire rooms with dusty paper, a single datacore can hold
+            thousands of research papers, preserving knowledge efficiently. Built tough, it can
+            withstand multiple explosions and is entirely fireproof.
+          
+          Keep it safe, however; if destroyed, the resulting fire would be dangerous to your research!</description>
           <graphicData>
             <texPath>Things/Building/ResearchServer/ResearchServer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -69,6 +73,14 @@
             <li Class="CompProperties_Power">
               <compClass>CompPowerTrader</compClass>
               <basePowerConsumption>250</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Explosive">
+              <explodeOnKilled>true</explodeOnKilled>
+              <explosiveRadius>1.9</explosiveRadius>
+              <explosiveDamageType>Flame</explosiveDamageType>
+              <damageAmountBase>0</damageAmountBase>
+              <chanceToStartFire>1.0</chanceToStartFire>
+              <drawWick>false</drawWick>
             </li>
           </comps>
           <modExtensions>
