@@ -25,4 +25,9 @@
     <targetDef>DS_DigitalOcean</targetDef>
   </AdaptiveStorage.GraphicsDef>
 
+  <AdaptiveStorage.GraphicsDef ParentName="DS_ShelfGraphicsBase" MayRequire="ChaoticEnrico.ResearchPapers">
+    <defName>DS_ResearchServerGraphics</defName>
+    <targetDef>ResearchServer</targetDef>
+  </AdaptiveStorage.GraphicsDef>
+
 </Defs>
