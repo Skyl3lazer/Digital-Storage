@@ -88,9 +88,22 @@ namespace DigitalStorage
 
             foreach (Building_Bookcase bookcase in room.ContainedThings<Building_Bookcase>())
             {
-                foreach (float cell in bookcase.CellsFilledPercentage)
+                DigitalShelfExtension ext = bookcase.def.GetModExtension<DigitalShelfExtension>();
+                if (ext != null)
                 {
-                    filledCells += cell;
+                    // A bookcase tagged as a digital shelf (e.g. Research Papers' server) will use
+                    // the per-book magnitude instead of its capacity-based fill percentage.
+                    if (PowerCheck.Powered(bookcase))
+                    {
+                        filledCells += bookcase.HeldBooks.Count * ext.readingBonusPerBook;
+                    }
+                }
+                else
+                {
+                    foreach (float cell in bookcase.CellsFilledPercentage)
+                    {
+                        filledCells += cell;
+                    }
                 }
             }
 

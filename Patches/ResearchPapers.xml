@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- If Research Papers is installed, make its ResearchServer grant a per-book reading
+       bonus like the digital shelves. The server keeps all of its own properties; it
+       only gains the DigitalShelfExtension so the reading-bonus patch counts it. -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Research Papers</li>
+    </mods>
+    <match Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ResearchServer"]</xpath>
+      <value>
+        <li Class="DigitalStorage.DigitalShelfExtension">
+          <readingBonusPerBook>0.2</readingBonusPerBook>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
