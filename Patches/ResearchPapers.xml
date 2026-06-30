@@ -15,13 +15,8 @@
         <ThingDef ParentName="DigitalStorageShelfBase">
           <defName>ResearchServer</defName>
           <label>research server</label>
-          <description>An advanced, high-density digital storage server designed to archive research
-            findings. Instead of taking up entire rooms with dusty paper, a single datacore can hold
-            thousands of research papers, preserving knowledge efficiently. Built tough, it can
-            withstand multiple explosions and is entirely fireproof.
-          
-            Keep it safe, however; if it IS destroyed, the resulting 
-            fire would be dangerous to your research!</description>
+          <description>An advanced, high-density digital storage server designed to archive research findings. Instead of taking up entire rooms with dusty paper, a single datacore can hold thousands of research papers, preserving knowledge efficiently. Built tough, it can withstand multiple explosions and is entirely fireproof.
+            Keep it safe, however; if it IS destroyed, the resulting fire would be dangerous to your research!</description>
           <graphicData>
             <texPath>Things/Building/ResearchServer/ResearchServer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
