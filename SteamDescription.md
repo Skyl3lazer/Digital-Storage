@@ -61,7 +61,7 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 [td]1x1[/td]
 [td]80[/td]
 [td]50 W[/td]
-[td]1.5x standard[/td]
+[td]1.5x (maxes a room's reading bonus when full)[/td]
 [td]50 stuff (metallic/stony), 100 steel, 1 advanced component[/td]
 [/tr]
 [tr]

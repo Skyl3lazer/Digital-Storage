@@ -19,7 +19,7 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 |---|---|---|---|---|---|
 | **Microfilm Reader** | 1x1 | 40 | 25 W | standard | 20 stuff (metallic/woody/stony), 25 steel, 1 component |
 | **Digitized Index** | 1x2 | 80 | 50 W | standard | 50 stuff (metallic/woody/stony), 50 steel, 2 components |
-| **PawnPedia Terminal** | 1x1 | 80 | 50 W | 1.5x standard | 50 stuff (metallic/stony), 100 steel, 1 advanced component |
+| **PawnPedia Terminal** | 1x1 | 80 | 50 W | 1.5x (maxes a room's reading bonus when full) | 50 stuff (metallic/stony), 100 steel, 1 advanced component |
 | **Digital Ocean** | 1x2 | 200 | 150 W | standard | 100 stuff (metallic/stony), 100 steel, 1 advanced component |
 
 ## Dependencies
