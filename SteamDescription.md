@@ -80,8 +80,8 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033901359]Adaptive Storage Framework[/url]
 [*](Optional) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3613068789]Generally More Research[/url] gates the research behind [i]Personal Computer[/i].
+[*](Optional) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492739424]Research Papers[/url] - Makes the Research Server into a digital storage building, restoring the per-book room reading bonus to contained items.
 [/list]
-
 
 [h2]Incompatibilities[/h2]
 
