@@ -91,7 +91,7 @@ namespace DigitalStorage
             }
 
             // Prepopulate defs so we don't have to walk every item in the rooms
-            foreach (ThingDef def in DefDatabase<ThingDef>.AllDefs)
+            foreach (ThingDef def in DefDatabase<ThingDef>.AllDefsListForReading)
             {
                 DigitalShelfExtension ext = def.GetModExtension<DigitalShelfExtension>();
                 if (ext != null)
