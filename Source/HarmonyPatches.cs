@@ -66,12 +66,12 @@ namespace DigitalStorage
     [HarmonyPatch(typeof(RoomStatWorker_ReadingBonus), nameof(RoomStatWorker_ReadingBonus.GetScore))]
     internal static class RoomStatWorker_ReadingBonus_Patch
     {
-        // Read from vanilla values at startup
         private static readonly float MaxEnhancement;
         private static readonly List<float> CellFilledFactor;
 
         static RoomStatWorker_ReadingBonus_Patch()
         {
+            // Reflect to get the vanilla attributes in case they change
             FieldInfo maxField = AccessTools.Field(typeof(RoomStatWorker_ReadingBonus), "MaxEnhancement");
             FieldInfo factorField = AccessTools.Field(typeof(RoomStatWorker_ReadingBonus), "CellFilledFactor");
             MaxEnhancement = maxField != null ? (float)maxField.GetValue(null) : 0.2f;
@@ -86,45 +86,37 @@ namespace DigitalStorage
         {
             float filledCells = 0f;
 
-            foreach (Building_Bookcase bookcase in room.ContainedThings<Building_Bookcase>())
+            foreach (Building building in room.ContainedThings<Building>())
             {
-                DigitalShelfExtension ext = bookcase.def.GetModExtension<DigitalShelfExtension>();
-                if (ext != null)
+                if (building is Building_Bookcase bookcase)
                 {
-                    // A bookcase tagged as a digital shelf (e.g. Research Papers' server) will use
-                    // the per-book magnitude instead of its capacity-based fill percentage.
-                    if (PowerCheck.Powered(bookcase))
+                    DigitalShelfExtension ext = bookcase.def.GetModExtension<DigitalShelfExtension>();
+                    // Vanilla bookshelves
+                    if (ext == null)
+                    {
+                        foreach (float cell in bookcase.CellsFilledPercentage)
+                        {
+                            filledCells += cell;
+                        }
+                    }
+                    // Digital-shelf-tagged vanilla bookcases (Research Papers server or anyone else uses this mod's properties)
+                    else if (PowerCheck.Powered(bookcase))
                     {
                         filledCells += bookcase.HeldBooks.Count * ext.readingBonusPerBook;
                     }
                 }
-                else
+                // ASF storages
+                else if (building is Building_Storage shelf)
                 {
-                    foreach (float cell in bookcase.CellsFilledPercentage)
+                    DigitalShelfExtension ext = shelf.def.GetModExtension<DigitalShelfExtension>();
+                    if (ext != null && shelf.slotGroup != null && PowerCheck.Powered(shelf))
                     {
-                        filledCells += cell;
+                        filledCells += shelf.slotGroup.HeldThingsCount * ext.readingBonusPerBook;
                     }
                 }
             }
 
-            foreach (Building_Storage shelf in room.ContainedThings<Building_Storage>())
-            {
-                DigitalShelfExtension ext = shelf.def.GetModExtension<DigitalShelfExtension>();
-                if (ext == null || !PowerCheck.Powered(shelf) || shelf.slotGroup == null)
-                {
-                    continue;
-                }
-                int books = 0;
-                foreach (Thing thing in shelf.slotGroup.HeldThings)
-                {
-                    if (thing is Book)
-                    {
-                        books++;
-                    }
-                }
-                filledCells += books * ext.readingBonusPerBook;
-            }
-
+            // Vanilla logic
             float score = 0f;
             int step = 0;
             while (filledCells > 0f && score < MaxEnhancement)
