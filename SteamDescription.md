@@ -96,3 +96,5 @@ Any mods that modify the reading bonus calculations of a room would clash with t
 [h3]AI Disclosure:[/h3]
 
 This mod was partially developed with the assistance of AI tools, used by an actual programmer who understands the mod and any code it produced.
+
+Full source available on [url=https://github.com/Skyl3lazer/Digital-Storage]GitHub[/url]
