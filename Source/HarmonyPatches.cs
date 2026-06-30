@@ -66,8 +66,17 @@ namespace DigitalStorage
     [HarmonyPatch(typeof(RoomStatWorker_ReadingBonus), nameof(RoomStatWorker_ReadingBonus.GetScore))]
     internal static class RoomStatWorker_ReadingBonus_Patch
     {
+        private readonly struct DigitalShelfKind
+        {
+            public readonly ThingDef def;
+            public readonly float perBook;
+            public DigitalShelfKind(ThingDef def, float perBook) { this.def = def; this.perBook = perBook; }
+        }
+
         private static readonly float MaxEnhancement;
         private static readonly List<float> CellFilledFactor;
+        private static readonly List<ThingDef> PlainBookcaseDefs = new List<ThingDef>();
+        private static readonly List<DigitalShelfKind> DigitalShelfDefs = new List<DigitalShelfKind>();
 
         static RoomStatWorker_ReadingBonus_Patch()
         {
@@ -80,39 +89,64 @@ namespace DigitalStorage
             {
                 Log.Warning("[Digital Storage] Could not read vanilla ReadingBonus constants via reflection; using last-known defaults. Reading bonus may be inaccurate for this game version.");
             }
+
+            // Prepopulate defs so we don't have to walk every item in the rooms
+            foreach (ThingDef def in DefDatabase<ThingDef>.AllDefs)
+            {
+                DigitalShelfExtension ext = def.GetModExtension<DigitalShelfExtension>();
+                if (ext != null)
+                {
+                    DigitalShelfDefs.Add(new DigitalShelfKind(def, ext.readingBonusPerBook));
+                }
+                else if (def.thingClass != null && typeof(Building_Bookcase).IsAssignableFrom(def.thingClass))
+                {
+                    PlainBookcaseDefs.Add(def);
+                }
+            }
         }
 
         static bool Prefix(Room room, ref float __result)
         {
             float filledCells = 0f;
 
-            foreach (Building building in room.ContainedThings<Building>())
+            // Untagged bookcases (vanilla + modded)
+            foreach (ThingDef def in PlainBookcaseDefs)
             {
-                if (building is Building_Bookcase bookcase)
+                foreach (Thing thing in room.ContainedThings(def))
                 {
-                    DigitalShelfExtension ext = bookcase.def.GetModExtension<DigitalShelfExtension>();
-                    // Vanilla bookshelves
-                    if (ext == null)
+                    if (thing is Building_Bookcase bookcase)
                     {
                         foreach (float cell in bookcase.CellsFilledPercentage)
                         {
                             filledCells += cell;
                         }
                     }
-                    // Digital-shelf-tagged vanilla bookcases (Research Papers server or anyone else uses this mod's properties)
-                    else if (PowerCheck.Powered(bookcase))
-                    {
-                        filledCells += bookcase.HeldBooks.Count * ext.readingBonusPerBook;
-                    }
                 }
-                // ASF storages
-                else if (building is Building_Storage shelf)
+            }
+
+            // Digital shelves
+            foreach (DigitalShelfKind shelf in DigitalShelfDefs)
+            {
+                foreach (Thing thing in room.ContainedThings(shelf.def))
                 {
-                    DigitalShelfExtension ext = shelf.def.GetModExtension<DigitalShelfExtension>();
-                    if (ext != null && shelf.slotGroup != null && PowerCheck.Powered(shelf))
+                    if (!PowerCheck.Powered(thing))
                     {
-                        filledCells += shelf.slotGroup.HeldThingsCount * ext.readingBonusPerBook;
+                        continue;
                     }
+                    int books;
+                    if (thing is Building_Storage storage)
+                    {
+                        books = storage.slotGroup?.HeldThingsCount ?? 0;
+                    }
+                    else if (thing is Building_Bookcase bookcase)
+                    {
+                        books = bookcase.HeldBooks.Count;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    filledCells += books * shelf.perBook;
                 }
             }
 
