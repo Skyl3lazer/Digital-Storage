@@ -20,7 +20,8 @@
             thousands of research papers, preserving knowledge efficiently. Built tough, it can
             withstand multiple explosions and is entirely fireproof.
           
-          Keep it safe, however; if destroyed, the resulting fire would be dangerous to your research!</description>
+            Keep it safe, however; if it IS destroyed, the resulting 
+            fire would be dangerous to your research!</description>
           <graphicData>
             <texPath>Things/Building/ResearchServer/ResearchServer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>

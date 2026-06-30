@@ -23,6 +23,7 @@
     </li>
   </modDependencies>
   <loadAfter>
+    <li>ChaoticEnrico.ResearchPapers</li>
     <li>brrainz.harmony</li>
     <li>adaptive.storage.framework</li>
     <li>Ludeon.RimWorld</li>
