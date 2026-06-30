@@ -92,3 +92,7 @@ Any mods that modify the reading bonus calculations of a room would clash with t
 [list]
 [*]RimWorld 1.6
 [/list]
+
+[h3]AI Disclosure:[/h3]
+
+This mod was partially developed with the assistance of AI tools, used by an actual programmer who understands the mod and any code it produced.

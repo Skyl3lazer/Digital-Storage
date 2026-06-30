@@ -36,3 +36,7 @@ Any mods that modify the reading bonus calculations of a room would clash with t
 ## Supported versions
 
 - RimWorld 1.6
+
+### AI Disclosure:
+
+This mod was partially developed with the assistance of AI tools, used by an actual programmer who understands the mod and any code it produced.
