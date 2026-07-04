@@ -167,6 +167,7 @@
     <graphicData>
       <texPath>Things/Building/DigitalStorage/DigitalOcean</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,2)</drawSize>
     </graphicData>
     <size>(1,2)</size>
