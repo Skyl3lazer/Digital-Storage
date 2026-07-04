@@ -43,6 +43,7 @@
     <graphicData>
       <texPath>Things/Building/DigitalStorage/MicrofilmReader</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,1)</drawSize>
     </graphicData>
     <size>(1,1)</size>
@@ -82,6 +83,7 @@
     <graphicData>
       <texPath>Things/Building/DigitalStorage/DigitizedIndex</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,2)</drawSize>
     </graphicData>
     <size>(1,2)</size>
@@ -121,6 +123,7 @@
     <graphicData>
       <texPath>Things/Building/DigitalStorage/PawnPediaTerminal</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,1)</drawSize>
     </graphicData>
     <size>(1,1)</size>
