@@ -42,10 +42,10 @@
     <description>An industrial reader that compresses written works onto strips of microfilm. Holds far more than a bookcase and still lets colonists study nearby, but only while powered.</description>
     <graphicData>
       <texPath>Things/Building/DigitalStorage/MicrofilmReader</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawRotated>false</drawRotated>
       <shaderType>CutoutComplex</shaderType>
-      <!-- 256x292 art: height/width = 292/256 = 1.140625, so drawSize height is scaled to keep aspect -->
-      <drawSize>(1,1.140625)</drawSize>
+      <drawSize>(1,1.28125)</drawSize>
     </graphicData>
     <size>(1,1)</size>
     <defaultPlacingRot>North</defaultPlacingRot>
@@ -84,10 +84,10 @@
     <description>A double-width cabinet of indexed microfilm reels. Stores a large reference library in a compact footprint and supports nearby study, as long as it has power.</description>
     <graphicData>
       <texPath>Things/Building/DigitalStorage/DigitizedIndex</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawRotated>false</drawRotated>
       <shaderType>CutoutComplex</shaderType>
-      <!-- 512x304 landscape art: aspect 512:304. At 256px/tile that's 2 x 1.1875 tiles -->
-      <drawSize>(2,1.1875)</drawSize>
+      <drawSize>(2,1.375)</drawSize>
     </graphicData>
     <size>(2,1)</size>
     <defaultPlacingRot>North</defaultPlacingRot>
