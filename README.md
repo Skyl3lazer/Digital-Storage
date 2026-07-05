@@ -37,6 +37,11 @@ Any mods that modify the reading bonus calculations of a room would clash with t
 
 - RimWorld 1.6
 
+## Check Out My Other Mods!
+
+[Break Timer](https://steamcommunity.com/sharedfiles/filedetails/?id=3732890624) - See what breaks your pawns are at risk of, and find out when they'll get over it.
+[Pipes for Medieval Overhaul](https://steamcommunity.com/sharedfiles/filedetails/?id=3725970365) - Adds DBH water pipes to some MO and MO mod objects.
+
 ### AI Disclosure:
 
 This mod was partially developed with the assistance of AI tools, used by an actual programmer who understands the mod and any code it produced.
