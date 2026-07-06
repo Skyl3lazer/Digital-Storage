@@ -100,6 +100,12 @@ Any mods that modify the reading bonus calculations of a room would clash with t
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3725970365]Pipes for Medieval Overhaul[/url] - Adds DBH water pipes to some MO and MO mod objects.
 [/list]
 
+[h2]Thanks to[/h2]
+
+[list]
+[*] CoMiGo, for the Rimworld Sprite Constructor figma that I used to make the graphics for this mod. Check out their stuff here: https://comigo.itch.io/
+[/list]
+
 [h3]AI Disclosure:[/h3]
 
 This mod was partially developed with the assistance of AI tools, used by an actual programmer who understands the mod and any code it produced.
