@@ -45,7 +45,8 @@
       <graphicClass>Graphic_Multi</graphicClass>
       <drawRotated>false</drawRotated>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>(1,1.28125)</drawSize>
+      <!-- 256x292 art (256px/tile): 1 tile wide, reels overhang; drawSize swaps for east/west -->
+      <drawSize>(1,1.140625)</drawSize>
     </graphicData>
     <size>(1,1)</size>
     <defaultPlacingRot>North</defaultPlacingRot>
@@ -87,7 +88,8 @@
       <graphicClass>Graphic_Multi</graphicClass>
       <drawRotated>false</drawRotated>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>(2,1.375)</drawSize>
+      <!-- 512x514 art (256px/tile): 2 tiles wide, reels overhang; drawSize swaps for east/west -->
+      <drawSize>(2,2.0078125)</drawSize>
     </graphicData>
     <size>(2,1)</size>
     <defaultPlacingRot>North</defaultPlacingRot>
