@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 .editorconfig
+_PublisherPlus.xml
 
 # User-specific files
 *.rsuser
