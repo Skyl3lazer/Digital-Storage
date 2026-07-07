@@ -2,7 +2,8 @@ name: Release on new modVersion
 
 # Publishes a GitHub release whenever About/About.xml is pushed with a modVersion
 # that has no matching release yet. The zip mirrors the Steam download: every
-# top-level entry except dot-prefixed folders/files and Source/.
+# top-level entry except dot-prefixed ones, Source/, docs/, _PublisherPlus.xml,
+# and any .sln / .psd / .code-workspace file.
 
 on:
   push:
@@ -35,7 +36,7 @@ jobs:
             echo "::error file=About/About.xml::No <modVersion> found"
             exit 1
           fi
-          name=${name:-Digital Storage}
+          name=${name:-mod}
           slug=$(echo "$name" | tr -cd '[:alnum:]')
           {
             echo "version=$version"
@@ -64,12 +65,14 @@ jobs:
           staging="$RUNNER_TEMP/staging/${{ steps.meta.outputs.name }}"
           mkdir -p "$staging"
           # Mirror the Steam download: every top-level entry except dot-prefixed
-          # ones (the glob skips them) and Source/.
+          # ones (the glob skips them), Source/, docs/, and _PublisherPlus.xml.
           for entry in *; do
-            [ "${entry,,}" = "source" ] && continue
+            case "${entry,,}" in
+              source|docs|_publisherplus.xml) continue ;;
+            esac
             cp -r "$entry" "$staging/"
           done
-          find "$staging" -type f \( -iname '*.psd' -o -iname '*.sln' \) -delete
+          find "$staging" -type f \( -iname '*.psd' -o -iname '*.sln' -o -iname '*.code-workspace' \) -delete
           ( cd "$RUNNER_TEMP/staging" && zip -rX "$RUNNER_TEMP/${{ steps.meta.outputs.zip }}" "${{ steps.meta.outputs.name }}" )
           echo "Packaged contents:"
           ( cd "$RUNNER_TEMP/staging" && find "${{ steps.meta.outputs.name }}" -maxdepth 2 -print )
