@@ -5,7 +5,6 @@ A RimWorld mod that bridges the gap between low-tier information storage (booksh
 If the buildings lose power, colonists can no longer add or remove items, and they stop providing any reading bonus.
 
 [h2]Research[/h2]
-
 [table]
 [tr]
 [th]Project[/th]
@@ -28,7 +27,6 @@ If the buildings lose power, colonists can no longer add or remove items, and th
 [/table]
 
 [h2]Buildings[/h2]
-
 All digital storages hold books just as a vanilla bookcase does. Advanced ones can also increase reading bonus. They only function while powered.
 
 [table]
@@ -75,7 +73,6 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 [/table]
 
 [h2]Dependencies[/h2]
-
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033901359]Adaptive Storage Framework[/url]
@@ -84,24 +81,20 @@ All digital storages hold books just as a vanilla bookcase does. Advanced ones c
 [/list]
 
 [h2]Incompatibilities[/h2]
-
 Any mods that modify the reading bonus calculations of a room would clash with this mod, as I reimplement the reading bonus calculation to allow the shelves to still give normal per-book (or enhanced per-book) bonuses. Without this patch then each book would be worth signifigantly less reading bonus while in the modded shelves.
 
 [h2]Supported versions[/h2]
-
 [list]
 [*]RimWorld 1.6
 [/list]
 
 [h2]Check Out My Other Mods![/h2]
-
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3732890624]Break Timer[/url] - See what breaks your pawns are at risk of, and find out when they'll get over it.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3725970365]Pipes for Medieval Overhaul[/url] - Adds DBH water pipes to some MO and MO mod objects.
 [/list]
 
 [h2]Thanks to[/h2]
-
 [list]
 [*] CoMiGo, for the Rimworld Sprite Constructor figma that I used to make the graphics for this mod. Check out their stuff here: https://comigo.itch.io/
 [/list]
