@@ -39,6 +39,8 @@ Any mods that modify the reading bonus calculations of a room would clash with t
 
 ## Check Out My Other Mods!
 
+[Apparel Policy Builder](https://steamcommunity.com/sharedfiles/filedetails/?id=3761873351) - Build apparel policies from rules over armor, insulation, coverage, and any other stat instead of a flat item list.
+
 [Break Timer](https://steamcommunity.com/sharedfiles/filedetails/?id=3732890624) - See what breaks your pawns are at risk of, and find out when they'll get over it.
 
 [Pipes for Medieval Overhaul](https://steamcommunity.com/sharedfiles/filedetails/?id=3725970365) - Adds DBH water pipes to some MO and MO mod objects.
