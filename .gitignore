@@ -151,3 +151,7 @@ node_modules/
 # AI Assistants
 .cursor
 .claude
+
+# RimWorld 1.7 asset packs baked by the in-game uploader (rebuilt per upload)
+Assets.zip
+Assets.zip.*
